@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- navbar================================================================================== -->
+    <nav>
+        <div>
+            <img src="https://cdn-icons-png.flaticon.com/128/1314/1314529.png" alt="">
+            <h1>Exodus Travels</h1>
+        </div>
+        <div>
+            <ul>
+                
+                <li><a href="">Trips</a></li>
+                <li><a href="">Support</a></li>
+                <div class="dropdown">
+                    <p>Profile</p>
+                    <div class="dropdown-content">
+                        <a href="#" id="btn-signin">Sign In</a>
+                        <a href="#">History</a>
+                        <a href="#">Sign Out</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <marquee behavior="" direction="left">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae alias ex sequi temporibus quaerat qui expedita dignissimos praesentium, aspernatur deserunt, maxime excepturi. Error quia deleniti reiciendis at ducimus doloremque autem.</marquee>
+
+    <!-- bodypart=========================================================================== -->
+    <form>
+        <label for="choose">What are you looking for:</label>
+        <select name="choose" id="type">
+            <option value="stays">Stays</option>
+            <option value="flights">Flights</option>
+            <option value="cars">Cars</option>
+        </select>
+        <div>
+                <input type="text" name="from" id="leavingfrom" placeholder="Leaving from">
+                <img src="https://cdn-icons-png.flaticon.com/128/2926/2926284.png" alt="">
+                <input type="text" id="goingto" placeholder="Going to">
+                <label for="">Check in:</label>
+                <input type="date" id="checkin">
+                <label for="">Check out:</label>
+                <input type="date" id="checkout">
+                <label for="">Travellers:</label>
+                <input type="text" id="travellers" placeholder="Number of Travellers">
+        </div>
+            <button id="searchPlans">Search</button>
+    </form>
+
+    <section>
+        <div id="showdata">
+          <!-- show data here -->
+        </div>
+    </section>
+
+    <section id="parent-container">
+        <div class="container">
+            <img src="https://img1.wallspic.com/previews/9/1/0/4/5/154019/154019-cloud-mountain-atmosphere-daytime-ecoregion-x750.jpg" alt="Snow" style="width:100%;border-radius: 20px;">
+            <div class="bottom-left-one">Save instantly <br> with Exodus <br> Rewards</div>
+            <div class="bottom-left-two">You can enjoy access to perks like Member <br> Prices, saving an average of 15% on thousands of <br> hotels. Terms may apply.</div>
+            <button id="seememberprices">See Member Prices</button>
+          </div>
+    </section>
+    <!-- signin=========================================================================================== -->
+
+    <div class="popup" id="popup-signin">
+      <div class="popup-content" >
+        <h2>Sign In</h2>
+        <form>
+          <label for="email">Email:</label>
+          <input type="email" id="email-signin" name="email" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password-signin" name="password" suggested: "current-password" required>
+          <button type="submit" id="submit-signin">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="#signup" id="btn-signup">Sign Up</a></p>
+        <a href="#close" class="popup-close">&times;</a>
+      </div>
+    </div>
+
+    <!-- signup=========================================================================================== -->
+    <div class="popup" id="popup-signup">
+      <div class="popup-content">
+        <h2>Sign Up</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name-signup" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email-signup" name="email" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password-signup" name="password" suggested: "current-password" required>
+          <button type="submit" id="submit-signup">Sign Up</button>
+        </form>
+        <a href="#close" class="popup-close">&times;</a>
+      </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

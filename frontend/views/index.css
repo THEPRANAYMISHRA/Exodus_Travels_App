@@ -1,0 +1,213 @@
+
+        *{
+            margin:0px;
+            padding: 0px;
+            font-family: 'Oleo Script Swash Caps', cursive;
+            font-family: 'Poppins', sans-serif;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            /* border: 2px solid red; */
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            position: sticky;
+            top: 0;
+            padding: 1%;
+            z-index: 2;
+            background-color: white;
+        }
+        nav>div>img{
+            height: 60px;
+            width: 60px;
+            margin: 0%,1%,0%,1%;
+        }
+        nav>div{
+            display: flex;
+            align-items: center;
+            /* border: 2px solid red; */
+            width: 40%;
+        }
+        nav>div>ul{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            /* border: 2px solid red; */
+            width: 100%;
+        }
+        nav>div>ul>select{
+            border: none;
+            padding: 1%;
+        }
+        nav>div>ul>li{
+            list-style: none;
+            font-size: larger;
+        }
+        nav>div>ul>li>a{
+            text-decoration: none;
+            color: black;
+        }
+        marquee{
+            background-color: black;
+            padding: 1%;
+            color: white;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            /* border: 2px solid red; */
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            margin-bottom: 2%;
+            padding-top:3%;
+            padding-bottom: 3%;
+        }
+        form>div{
+            border: 2px solid rgb(86, 86, 86);
+            width: 90%;
+            padding:5% 1% 5% 1%;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form>div>img{
+            height: 30px;
+            margin: 3px;
+        }
+        form>div>input{
+            padding:1% 0.5% 1% 0.5%;
+            border-radius: 20px;
+            border-color: black;
+            outline: none;
+        }
+        form>button{
+            padding:0.5% 1% 0.5% 1%;
+            background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+            font-size: larger;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            margin: 1%;
+            box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding:0.5% 5% 0.5% 5%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            text-align: left;
+            z-index: 1;
+            box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            width: 120px;
+            background-color: white;
+            padding-left: 20px;
+            border-radius: 15px;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+
+        .dropdown-content>a{
+            display: block;
+            font-size: 20px;
+            text-decoration: none;
+            padding:15px;
+            color: black;
+        }
+        #parent-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:1% 0.5% 1% 0.5%;
+        }
+        .container {
+            width: 80%;
+            /* border: 2px solid red; */
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .bottom-left-one{
+            position: absolute;
+            text-align: left;
+            font-size: 70px;
+            bottom: 250px;
+            left: 20px;
+        }
+        .bottom-left-two{
+            position: absolute;
+            text-align: left;
+            font-size: 20px;
+            bottom: 170px;
+            left: 20px;
+        }
+        #seememberprices{
+            position: absolute;
+            text-align: left;
+            bottom: 60px;
+            left: 16px;
+            padding:0.5% 1% 0.5% 1%;
+            background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+            font-size: larger;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            margin: 1%;
+            box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+          .popup form{
+            border-radius: 20px;
+          }
+          .popup-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 50px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            border-radius: 20px;
+          }
+          
+          .popup h2 {
+            margin-top: 0;
+          }
+          
+          .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            text-decoration: none;
+          }
+          
+          .popup-close:hover,
+          .popup-close:focus {
+            color: black;
+            cursor: pointer;
+          }
