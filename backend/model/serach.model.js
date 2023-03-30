@@ -1,12 +1,12 @@
 const mongoose=require("mongoose")
 
 const searchSchema=mongoose.Schema({
-    lookingfor:String,
+    Booking_type:String,
     from:String,
     to:String,
-    checkIn:Date,
-    checkOut:Date,
-    Travellers:Number
+    checkIn:String,
+    checkOut:String,
+    seats:Number
 })
 
 const SearchModal=mongoose.model("allData",searchSchema)
