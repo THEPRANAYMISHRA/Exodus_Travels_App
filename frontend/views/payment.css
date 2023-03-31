@@ -1,0 +1,53 @@
+Copy code
+header {
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
+
+form {
+	margin: 0 auto;
+	max-width: 500px;
+	padding: 20px;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input[type="text"], select {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #fff;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	background: url("https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png") no-repeat right center;
+	background-size: 20px;
+}
+
+input[type="submit"] {
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+	background-color: #555;
+}

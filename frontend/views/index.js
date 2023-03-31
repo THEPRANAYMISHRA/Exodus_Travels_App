@@ -1,3 +1,18 @@
+let namebox=document.querySelector(".dropdown>p")
+let logoutbtn=document.getElementById("btn-signout")
+let loginbtn=document.getElementById("btn-signin")
+
+window.onload=()=>{
+    let name=localStorage.getItem("name")
+    if(name){
+        namebox.textContent=`Hello,${name}`
+        loginbtn.style.display="none"
+        logoutbtn.style.display="block"
+    }else{
+        namebox.textContent="Profile"
+    }
+}
+
 const popupSignIn = document.querySelector("#popup-signin");
 const popupSignUp = document.querySelector("#popup-signup");
 const btnSignIn = document.querySelector("#btn-signin");
@@ -48,7 +63,7 @@ searchbtn.addEventListener("click", async(e)=>{
         seats:TravellersEl.value
     }
 
-    console.log(plan)
+    // console.log(plan)
     try {
         let res=await fetch("http://localhost:4500/search/available",{
                 method:"POST",
@@ -70,7 +85,6 @@ searchbtn.addEventListener("click", async(e)=>{
 let emailEl=document.getElementById("email-signin")
 let passEl=document.getElementById("password-signin")
 let signInbtn=document.getElementById("submit-signin")
-let namebox=document.querySelector(".dropdown p")
 
 signInbtn.addEventListener("click",async(e)=>{
     e.preventDefault()
@@ -91,7 +105,9 @@ signInbtn.addEventListener("click",async(e)=>{
         localStorage.setItem("name",res.name)
         alert(res.msg)
         popupSignIn.style.display = "none";
-        namebox.innerText=`${localStorage.getItem("name")||"Profile"}`
+        loginbtn.style.display="none"
+        logoutbtn.style.display="block"
+        namebox.innerText=`Hello,${localStorage.getItem("name")||"Profile"}`
     } catch (error) {
         alert(res.msg)
     }
@@ -162,7 +178,9 @@ function Display(data){
 
         let book=document.createElement("button")
         book.textContent="Book Now"
-        book.setAttribute('id','bookBtn');
+        book.setAttribute('class','bookBtn');
+
+        book.addEventListener("click",makeBooking)
 
         dataDiv.append(Booking_type1,from,arrow,to,seats)
 
@@ -175,15 +193,24 @@ function Display(data){
 
 let token=localStorage.getItem("token")
 
-let bookBtn=document.getElementById("bookBtn")
+function makeBooking(){
+    if(token){
+        window.location.href="payment.html"
+    }else{
+        alert("login first")
+    }
+}
 
-bookBtn.addEventListener("click",()=>{
-    // if(token){
-    //     console.log("go")
-    // }else{
-    //     console.log("login first")
-    // }
-    console.log("hello")
+
+//signout=================================================================
+
+logoutbtn.addEventListener("click",()=>{
+    localStorage.clear();
+    logoutbtn.style.display="none";
+    loginbtn.style.display="block";
+    namebox.innerText="Profile"
+    alert("logged out")
 })
+
 
 
