@@ -85,6 +85,7 @@ searchbtn.addEventListener("click", async(e)=>{
 let emailEl=document.getElementById("email-signin")
 let passEl=document.getElementById("password-signin")
 let signInbtn=document.getElementById("submit-signin")
+let token=localStorage.getItem("token")
 
 signInbtn.addEventListener("click",async(e)=>{
     e.preventDefault()
@@ -180,7 +181,32 @@ function Display(data){
         book.textContent="Book Now"
         book.setAttribute('class','bookBtn');
 
-        book.addEventListener("click",makeBooking)
+        book.addEventListener("click",()=>{
+            let token=localStorage.getItem("token")
+            if(token){
+                e["travellers"]=TravellersEl.value;
+                let storeBooking=async ()=>{
+                    try {
+                        let res=await fetch("http://localhost:4500/trip/booking",{
+                                method:"POST",
+                                headers:{
+                                    "Content-Type":"application/json",
+                                    "Authorization":`Bearer ${token}`
+                                },
+                                body:JSON.stringify(e)
+                            })
+                        res=await res.json()
+                        alert(res.msg)
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+
+                storeBooking()
+            }else{
+                alert("login first")
+            }
+        })
 
         dataDiv.append(Booking_type1,from,arrow,to,seats)
 
@@ -191,15 +217,17 @@ function Display(data){
 }
 //Booking================================================================
 
-let token=localStorage.getItem("token")
 
-function makeBooking(){
-    if(token){
-        window.location.href="payment.html"
-    }else{
-        alert("login first")
-    }
-}
+
+// function makeBooking(){
+//     let token=localStorage.getItem("token")
+//     if(token){
+//         localStorage.setItem("trip",JSON.stringify(e))
+//         window.location.href="payment.html"
+//     }else{
+//         alert("login first")
+//     }
+// }
 
 
 //signout=================================================================

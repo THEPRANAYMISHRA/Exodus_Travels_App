@@ -1,11 +1,14 @@
 const mongoose=require("mongoose")
 
 const bookingSchema = new mongoose.Schema({
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'user'
-    },
-    date: Date
+  Booking_type:String,
+  from:String,
+  to:String,
+  checkIn:String,
+  checkOut:String,
+  travellers:Number,
+  userId:String,
+  valid:{type: Boolean, default: false}
   });
 
 const BoookingModel=mongoose.model("allBooking",bookingSchema)

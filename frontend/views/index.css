@@ -122,11 +122,12 @@
         }
 
         .dropdown-content>a{
-            display: block;
-            font-size: 20px;
-            text-decoration: none;
-            padding:5px;
-            color: black;
+          display: block;
+          font-size: 20px;
+          font-weight:bolder;
+          text-decoration: none;
+          padding:10px;
+          color: black;
         }
         .dropdown-content>p{
             display: block;
@@ -140,7 +141,12 @@
           color:black;
           background-color: #4b90f797;
           border-radius: 30px;
-
+          cursor: pointer;
+        }
+        .dropdown-content>a:hover{
+          color:black;
+          background-color: #4b90f797;
+          border-radius: 30px;
         }
         #parent-container{
             display: flex;
