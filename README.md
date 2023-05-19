@@ -11,3 +11,6 @@ Contact
 If you have any questions or feedback, please contact us at contact@exodustravels.com.
 
 Thank you for using Exodus Travels!
+
+
+![Screenshot 2023-05-19 092109](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/548fd596-e605-46b7-837c-0f03c7048698)
