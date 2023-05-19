@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exodus Travels</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -20,12 +21,13 @@
             <ul>
                 
                 <li><a href="">Trips</a></li>
-                <li><a href="">Support</a></li>
+                <li><a href="help.html">Support</a></li>
                 <div class="dropdown">
                     <p>Profile</p>
                     <div class="dropdown-content">
                         <p id="btn-signin">Login</p>
                         <a href="history.html">History</a>
+                        <a href="help.html" id="SupportBtn">Support</a>
                         <p id="btn-signout" style="display: none;">Logout</p>
                     </div>
                 </div>
@@ -33,7 +35,7 @@
         </div>
     </nav>
 
-    <marquee direction="left">From sandy beaches to snowy slopes, we've got you covered. Start planning your next getaway today. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use code first1000 and get upto 1000 rs off on you first booking.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From sandy beaches to snowy slopes, we've got you covered. Start planning your next getaway today.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</marquee>
+    <marquee direction="left" behavior="scroll" >From sandy beaches to snowy slopes, we've got you covered. Start planning your next getaway today. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use code first1000 and get upto 1000 rs off on you first booking.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From sandy beaches to snowy slopes, we've got you covered. Start planning your next getaway today.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</marquee>
 
     <!-- bodypart=========================================================================== -->
     <form>
@@ -48,9 +50,9 @@
                 <img src="https://cdn-icons-png.flaticon.com/128/2926/2926284.png" alt="">
                 <input type="text" id="goingto" placeholder="Going to">
                 <label for="">Check in:</label>
-                <input type="date" id="checkin" min="2023-03-30">
+                <input type="date" id="checkin">
                 <label for="">Check out:</label>
-                <input type="date" id="checkout" min="2023-03-30">
+                <input type="date" id="checkout">
                 <label for="">Travellers:</label>
                 <input type="text" id="travellers" placeholder="Number of Travellers">
         </div>
@@ -62,6 +64,60 @@
           <!-- show data here -->
         </div>
     </section>
+
+    <div id="places">
+      <div>
+       <div>
+           <h1>Handpicked Collections for You</h1>
+            <div>
+               <button id="leftclick"> < </button>
+               <button id="rightclick"> > </button>    
+            </div>
+       </div>
+       <div id="maintrips">
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_romantic44_p_540_417.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_honeymoon11_p_540_417.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/TI/mmt/activities/m_curated_collection_international_destination_july_p_403_403.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_beach44_p_540_417.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_weekend44_p_540_417.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_hill_stations11_p_540_417.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com/content/hubble/img/Australia/mmt/destination/m_Australia_destination_6_l_361_641.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+           <div>
+               <img src="https://hblimg.mmtcdn.com//content/hubble/img/amritsar/mmt/destination/m_Amritsar_activity_heritage_l_684_1026.jpg">
+               <div>Top 11</div>
+               <p>destinations</p>
+           </div>
+       </div>
+      </div>
+   </div>
 
     <section id="parent-container">
         <div class="container">
@@ -105,10 +161,12 @@
 
     <!-- ========================================================================== -->
     <footer>
+
       <div class="box">
         <h2>About Us</h2>
         <p>Exodus Travels is a leading adventure travel company offering unforgettable experiences in over 50+ countries. We create extraordinary itineraries that immerse you in the local culture and take you off the beaten track.</p>
       </div>
+
       <div class="box">
         <h2>Contact Us</h2>
         <p>123,Main Street</p>
@@ -116,6 +174,7 @@
         <p>email:info@exodustravels.com</p>
         <p>phone:12345678</p>
       </div>
+
       <div class="box">
         <h2>Connect With Us</h2>
         <ul>
@@ -124,8 +183,10 @@
           <li><a href="#">Instagram</a></li>
         </ul>
       </div>
+
     </footer>
     
 </body>
 <script src="index.js"></script>
+<script></script>
 </html>

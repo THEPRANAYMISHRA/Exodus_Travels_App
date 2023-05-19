@@ -5,12 +5,18 @@ let loginbtn=document.getElementById("btn-signin")
 window.onload=()=>{
     let name=localStorage.getItem("name")
     if(name){
-        namebox.textContent=`Hello,${name}`
+        namebox.textContent=`Hello,${name.split(" ")[0].toUpperCase()}`
         loginbtn.style.display="none"
         logoutbtn.style.display="block"
     }else{
         namebox.textContent="Profile"
     }
+
+    let checkinbox=document.getElementById("checkin");
+    let checkoutbox=document.getElementById("checkout");
+
+    checkinbox.min=getTodayDate();
+    checkoutbox.min=getTodayDate();
 }
 
 const popupSignIn = document.querySelector("#popup-signin");
@@ -108,9 +114,10 @@ signInbtn.addEventListener("click",async(e)=>{
         popupSignIn.style.display = "none";
         loginbtn.style.display="none"
         logoutbtn.style.display="block"
-        namebox.innerText=`Hello,${localStorage.getItem("name")||"Profile"}`
+        namebox.innerText=`Hello,${localStorage.getItem("name").split(" ")[0].toUpperCase()||"Profile"}`
     } catch (error) {
-        alert(res.msg)
+        console.log(error)
+        alert("something went wrong")
     }
 })
 
@@ -181,28 +188,11 @@ function Display(data){
         book.textContent="Book Now"
         book.setAttribute('class','bookBtn');
 
-        book.addEventListener("click",()=>{
+        book.addEventListener("click",async()=>{
             let token=localStorage.getItem("token")
             if(token){
-                e["travellers"]=TravellersEl.value;
-                let storeBooking=async ()=>{
-                    try {
-                        let res=await fetch("http://localhost:4500/trip/booking",{
-                                method:"POST",
-                                headers:{
-                                    "Content-Type":"application/json",
-                                    "Authorization":`Bearer ${token}`
-                                },
-                                body:JSON.stringify(e)
-                            })
-                        res=await res.json()
-                        alert(res.msg)
-                    } catch (error) {
-                        console.log(error)
-                    }
-                }
-
-                storeBooking()
+                localStorage.setItem("book_this",JSON.stringify(e))
+                window.location.href="payment.html";
             }else{
                 alert("login first")
             }
@@ -215,20 +205,6 @@ function Display(data){
     })
 
 }
-//Booking================================================================
-
-
-
-// function makeBooking(){
-//     let token=localStorage.getItem("token")
-//     if(token){
-//         localStorage.setItem("trip",JSON.stringify(e))
-//         window.location.href="payment.html"
-//     }else{
-//         alert("login first")
-//     }
-// }
-
 
 //signout=================================================================
 
@@ -241,4 +217,42 @@ logoutbtn.addEventListener("click",()=>{
 })
 
 
+//return today 
+function getTodayDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
+
+//for scrolling==============================================
+
+let button3=document.getElementById("leftclick")
+button3.addEventListener("click",()=>{
+    let container=document.getElementById("maintrips")
+    sideScroll(container,"left",10,300,10)
+})
+
+let button4=document.getElementById("rightclick")
+button4.addEventListener("click",()=>{
+    let container=document.getElementById("maintrips")
+    sideScroll(container,"right",10,300,10)
+})
+
+
+function sideScroll(element,direction,speed,distance,step){
+    scrollAmount=0;
+    let slideTimer=setInterval(function(){
+        if(direction=="left"){
+            element.scrollLeft -=step;
+        }else{
+            element.scrollLeft +=step;
+        }
+        scrollAmount +=step;
+        if(scrollAmount >= distance){
+            window.clearInterval(slideTimer);
+        }},speed)
+    }
+    

@@ -25,6 +25,5 @@ app.listen(4500,async()=>{
         console.log("failed to connect to db")
         console.log(error)
     }
-
     console.log("server is running")
 })

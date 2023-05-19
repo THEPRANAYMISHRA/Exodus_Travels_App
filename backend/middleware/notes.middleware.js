@@ -1,4 +1,5 @@
 const jwt=require("jsonwebtoken")
+const cors=require("cors")
 
 const auth=(req,res,next)=>{
     const token=req.headers.authorization.split(" ")[1]
