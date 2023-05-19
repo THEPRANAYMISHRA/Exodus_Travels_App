@@ -34,7 +34,9 @@ Thank you for using Exodus Travels!
 ![Screenshot 2023-05-19 103615](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/12234df6-3630-4bb1-a5a1-48f76096c905)
 
 ![Screenshot 2023-05-19 103628](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/db7066d0-abc9-4846-8630-e9b554d74796)
+
 <h1>History Page</h1>
 ![Screenshot 2023-05-19 103638](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/f114feaa-13f3-40a0-84be-391cbd74e03f)
+
 <h1>Logout function</h1>
 ![Screenshot 2023-05-19 103650](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/f310c8b9-67db-41e8-80c0-f0b607b70c4f)
