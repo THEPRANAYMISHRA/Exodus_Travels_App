@@ -1,53 +1,198 @@
-Copy code
-header {
-	background-color: #333;
-	color: white;
-	padding: 10px;
-	text-align: center;
-}
-
-form {
-	margin: 0 auto;
-	max-width: 500px;
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f1f1f1;
 	padding: 20px;
-	background-color: #f5f5f5;
-	border-radius: 5px;
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-image: url("https://images.unsplash.com/photo-1490650404312-a2175773bbf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: lightblue;
+	margin: 0;
 }
+  
+  .loading-layer {
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	display: none;
+  }
 
-label {
+  loader {
+	width: 80px;
+	height: 50px;
+	position: relative;
+  }
+  
+  .loader-text {
+	position: absolute;
+	top: 50%;
+	padding: 0;
+	margin: 0;
+	color: #C8B6FF;
+	animation: text_713 3.5s ease both infinite;
+	font-size: .8rem;
+	letter-spacing: 1px;
+  }
+  
+  .load {
+	background-color: #79b5ff;
+	border-radius: 50px;
+	display: block;
+	height: 16px;
+	width: 16px;
+	bottom: 0;
+	position: absolute;
+	transform: translateX(64px);
+	animation: loading_713 3.5s ease both infinite;
+  }
+  
+  .load::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: #c2dbff;
+	border-radius: inherit;
+	animation: loading2_713 3.5s ease both infinite;
+  }
+  
+  @keyframes text_713 {
+	0% {
+	  letter-spacing: 1px;
+	  transform: translateX(0px);
+	}
+  
+	40% {
+	  letter-spacing: 2px;
+	  transform: translateX(26px);
+	}
+  
+	80% {
+	  letter-spacing: 1px;
+	  transform: translateX(32px);
+	}
+  
+	90% {
+	  letter-spacing: 2px;
+	  transform: translateX(0px);
+	}
+  
+	100% {
+	  letter-spacing: 1px;
+	  transform: translateX(0px);
+	}
+  }
+  
+  @keyframes loading_713 {
+	0% {
+	  width: 16px;
+	  transform: translateX(0px);
+	}
+  
+	40% {
+	  width: 100%;
+	  transform: translateX(0px);
+	}
+  
+	80% {
+	  width: 16px;
+	  transform: translateX(64px);
+	}
+  
+	90% {
+	  width: 100%;
+	  transform: translateX(0px);
+	}
+  
+	100% {
+	  width: 16px;
+	  transform: translateX(0px);
+	}
+  }
+  
+  @keyframes loading2_713 {
+	0% {
+	  transform: translateX(0px);
+	  width: 16px;
+	}
+  
+	40% {
+	  transform: translateX(0%);
+	  width: 80%;
+	}
+  
+	80% {
+	  width: 100%;
+	  transform: translateX(0px);
+	}
+  
+	90% {
+	  width: 80%;
+	  transform: translateX(15px);
+	}
+  
+	100% {
+	  transform: translateX(0px);
+	  width: 16px;
+	}
+  }
+  
+  
+  .container {
+	width: 34%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	z-index:22;
+  }
+  
+  h1 {
+	text-align: center;
+  }
+  
+  form {
+	margin-top: 20px;
+  }
+  
+  label {
 	display: block;
 	margin-bottom: 10px;
-}
-
-input[type="text"], select {
-	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
 	width: 100%;
-	box-sizing: border-box;
-	background-color: #fff;
-	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-}
-
-select {
-	appearance: none;
-	-webkit-appearance: none;
-	background: url("https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png") no-repeat right center;
-	background-size: 20px;
-}
-
-input[type="submit"] {
-	background-color: #333;
-	color: white;
 	padding: 10px;
-	border-radius: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+  }
+  
+  button {
+	background-color: #4CAF50;
+	color: #fff;
 	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
 	cursor: pointer;
-	transition: background-color 0.2s ease-in-out;
-}
-
-input[type="submit"]:hover {
-	background-color: #555;
-}
+	font-size: 16px;
+  }
+  
+  .success-msg {
+	background-color: #e9ffd9;
+	border: 1px solid #b1dfbb;
+	color: #4F8A10;
+	padding: 10px;
+	margin-top: 20px;
+  }

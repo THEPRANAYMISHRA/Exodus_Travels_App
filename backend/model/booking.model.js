@@ -6,9 +6,9 @@ const bookingSchema = new mongoose.Schema({
   to:String,
   checkIn:String,
   checkOut:String,
-  travellers:Number,
+  travellers:{type:Number,default:1},
   userId:String,
-  valid:{type: Boolean, default: false}
+  valid:{type: Boolean, default:true}
   });
 
 const BoookingModel=mongoose.model("allBooking",bookingSchema)
