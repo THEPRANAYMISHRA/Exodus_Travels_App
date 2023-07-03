@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exodus Travels</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./Style/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- navbar================================================================================== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/1314/1314529.png"
+            alt=""
+          />ExodusTravel</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <marquee direction="left" behavior="scroll"
+      >From sandy beaches to snowy slopes, we've got you covered. Start planning
+      your next getaway today.
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use code first1000
+      and get upto 1000 rs off on you first
+      booking.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From sandy beaches to
+      snowy slopes, we've got you covered. Start planning your next getaway
+      today.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</marquee
+    >
+
+    <!-- bodypart=========================================================================== -->
+    <form>
+      <label for="choose">What're you looking for</label>
+      <select name="choose" id="type">
+        <option value="Stays">Stays</option>
+        <option value="Flights">Flights</option>
+        <option value="Cars">Cars</option>
+      </select>
+      <!-- for hetels========================= -->
+      <div id="formforstays">
+        <input
+          type="text"
+          name="from"
+          id="location"
+          placeholder="Enter location"
+        />
+        <label for="">Check in:</label>
+        <input type="date" id="checkin" />
+        <label for="">Check out:</label>
+        <input type="date" id="checkout" />
+      </div>
+      <!-- for flights========================= -->
+      <div id="formforflights" style="display: none">
+        <input
+          type="text"
+          name="from"
+          id="leavingfrom"
+          placeholder="Leaving from"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2926/2926284.png"
+          alt=""
+        />
+        <input type="text" id="goingto" placeholder="Going to" />
+        <label for="">Departing</label>
+        <input type="date" id="departuredate" />
+        <label for="">Returning</label>
+        <input type="date" id="returndate" />
+      </div>
+      <!-- for cars============================ -->
+      <div id="formforcars" style="display: none">
+        <input
+          type="text"
+          name="from"
+          id="pickup"
+          placeholder="Pickup location"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2926/2926284.png"
+          alt=""
+        />
+        <input type="text" id="dropoff" placeholder="Drop off location" />
+        <label for="">Pick Up Time</label>
+        <input type="time" id="pickuptime" />
+      </div>
+      <button id="searchPlans" type="button">Search</button>
+    </form>
+
+    <!-- ads========================================================================= -->
+    <div id="places">
+      <div>
+        <div>
+          <h1>Handpicked Collections for You</h1>
+          <div>
+            <button id="leftclick"><</button>
+            <button id="rightclick">></button>
+          </div>
+        </div>
+        <div id="maintrips">
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_romantic44_p_540_417.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_honeymoon11_p_540_417.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/TI/mmt/activities/m_curated_collection_international_destination_july_p_403_403.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_beach44_p_540_417.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_weekend44_p_540_417.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/collections/m_hill_stations11_p_540_417.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com/content/hubble/img/Australia/mmt/destination/m_Australia_destination_6_l_361_641.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+          <div>
+            <img
+              src="https://hblimg.mmtcdn.com//content/hubble/img/amritsar/mmt/destination/m_Amritsar_activity_heritage_l_684_1026.jpg"
+            />
+            <div>Top 11</div>
+            <p>destinations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="parent-container">
+      <div class="container">
+        <img
+          src="https://img1.wallspic.com/previews/9/1/0/4/5/154019/154019-cloud-mountain-atmosphere-daytime-ecoregion-x750.jpg"
+          alt="Snow"
+          style="width: 100%; border-radius: 20px"
+        />
+        <div class="bottom-left-one">
+          Save instantly <br />
+          with Exodus <br />
+          Rewards
+        </div>
+        <div class="bottom-left-two">
+          You can enjoy access to perks like Member <br />
+          Prices, saving an average of 15% on thousands of <br />
+          hotels. Terms may apply.
+        </div>
+        <button id="seememberprices">See Member Prices</button>
+      </div>
+    </section>
+
+    <!-- ========================================================================== -->
+    <footer>
+      <div class="box">
+        <h2>About Us</h2>
+        <p>
+          Exodus Travels is a leading adventure travel company offering
+          unforgettable experiences in over 50+ countries. We create
+          extraordinary itineraries that immerse you in the local culture and
+          take you off the beaten track.
+        </p>
+      </div>
+
+      <div class="box">
+        <h2>Contact Us</h2>
+        <p>123,Main Street</p>
+        <p>Delhi,India</p>
+        <p>email:info@exodustravels.com</p>
+        <p>phone:12345678</p>
+      </div>
+
+      <div class="box">
+        <h2>Connect With Us</h2>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+  <script src="./Script/index.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"
+  ></script>
+</html>

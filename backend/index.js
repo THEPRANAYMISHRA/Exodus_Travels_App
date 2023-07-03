@@ -9,7 +9,7 @@ const cors=require("cors")
 
 app.use(cors())
 app.use(express.json())
-app.use("/users",userRoutes)
+app.use("/user",userRoutes)
 app.use("/search",searchRoutes)
 app.use("/trip",bookingRoutes)
 
@@ -25,5 +25,5 @@ app.listen(4500,async()=>{
         console.log("failed to connect to db")
         console.log(error)
     }
-    console.log("server is running")
+    console.log("server is running at 4500")
 })
