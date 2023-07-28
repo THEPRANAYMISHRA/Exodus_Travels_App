@@ -4,7 +4,7 @@ let searchingfor = JSON.parse(localStorage.getItem("Searching for"))
 
 window.onload = async () => {
     try {
-        let res = await fetch(`https://exodustravels.cyclic.app/search/available/${searchingfor}`, {
+        let res = await fetch(`https://exodustravels.onrender.com/search/available/${searchingfor}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

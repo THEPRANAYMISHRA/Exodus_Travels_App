@@ -12,7 +12,7 @@ require('dotenv').config()
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: 'http://127.0.0.1:5501'
+    origin: 'https://exodustravels.netlify.app/'
 }));
 app.use(express.json())
 
