@@ -1,6 +1,7 @@
 let showDatabox = document.getElementById("showdata")
 let plan = JSON.parse(localStorage.getItem("searchPlan"))
 let searchingfor = JSON.parse(localStorage.getItem("Searching for"))
+let loadingScreen = document.getElementById('loadingScreen')
 
 window.onload = async () => {
     try {
@@ -12,6 +13,7 @@ window.onload = async () => {
             body: JSON.stringify(plan)
         })
         res = await res.json()
+        loadingScreen.style.zIndex = -2
         if (searchingfor == 'Flights') {
             DisplayFlights(res)
         } else if (searchingfor == 'Stays') {
