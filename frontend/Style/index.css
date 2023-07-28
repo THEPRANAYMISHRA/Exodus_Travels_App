@@ -207,114 +207,116 @@ body > form > button:hover {
     inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
 }
 
-footer {
-  background-color: #000000;
+/* Add your own styles and customizations */
+.footer {
+  background-color: #333;
   color: #fff;
-  padding: 1%;
-  text-align: center;
-  font-size: 0.8rem;
-  font-family: Arial, sans-serif;
-  display: flex;
+  padding: 20px;
 }
 
-/* Style the links in the footer */
-footer a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-footer a:hover {
-  color: #ffcc00;
-}
-
-/* Style the logo in the footer */
-footer img {
-  height: 50px;
-  margin-right: 1%;
-}
-
-/* Style the box element */
-.box {
-  margin: 1%;
-  word-wrap: normal;
-  font-size: 90%;
-}
-
-/* Style the social icons */
-.social-icons {
-  display: flex;
-  align-items: center;
-}
-
-.social-icons a {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-right: 10px;
-  text-align: center;
-  line-height: 30px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.social-icons a:hover {
-  background-color: #ffcc00;
-}
-
-/* Style the newsletter form */
-.newsletter-form {
+.footer-content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+}
+
+.footer-logo img {
+  max-width: 70px;
+}
+
+.footer-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer-links li {
+  margin-right: 15px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #f2c94c;
+}
+
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer-social li {
+  margin-right: 15px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #f2c94c;
+}
+
+.footer-bottom {
+  text-align: center;
   margin-top: 20px;
 }
+/* Existing styles... */
 
-.newsletter-form label {
-  display: block;
-  margin-right: 1%;
-  font-weight: bold;
-  font-size: 0.5rem;
-  line-height: 30px;
+.footer-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.footer-address,
+.footer-newsletter {
+  flex: 1 0 300px;
+  margin-bottom: 20px;
+}
+
+.footer-address p,
+.footer-newsletter p {
+  margin: 5px 0;
+}
+
+.footer-newsletter form {
+  display: flex;
+}
+
+.footer-newsletter input[type="email"] {
   flex: 1;
+  padding: 5px;
 }
 
-.newsletter-form input[type="email"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 0.5rem;
-  flex: 3;
-}
-
-.newsletter-form button {
-  background-color: #ffcc00;
+.footer-newsletter button {
+  padding: 5px 10px;
+  background-color: #f2c94c;
   color: #333;
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
-  flex: 1;
 }
 
-.newsletter-form button:hover {
-  background-color: #fff;
-  color: #333;
-}
+/* Existing styles... */
 
 /* Media Queries */
 
 /* Adjust navigation styles for smaller screens */
 @media screen and (max-width: 768px) {
   html {
-    font-size: 75%;
+    font-size: 85%;
   }
   #showdata > div {
     flex-direction: column;
@@ -322,18 +324,15 @@ footer img {
   body > form > div {
     flex-direction: column;
   }
-  #parent-container {
+  /* #parent-container {
     font-size: 55%;
-  }
-  footer {
-    font-size: 0.3rem;
-  }
+  } */
 }
 
 /* Adjust form styles for smaller screens */
 @media screen and (max-width: 480px) {
   html {
-    font-size: 55%;
+    font-size: 75%;
   }
   #parent-container {
     font-size: 25%;
