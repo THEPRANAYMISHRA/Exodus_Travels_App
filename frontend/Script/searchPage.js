@@ -13,7 +13,7 @@ window.onload = async () => {
             body: JSON.stringify(plan)
         })
         res = await res.json()
-        loadingScreen.style.zIndex = -2
+        loadingScreen.style.display = 'none'
         if (searchingfor == 'Flights') {
             DisplayFlights(res)
         } else if (searchingfor == 'Stays') {
