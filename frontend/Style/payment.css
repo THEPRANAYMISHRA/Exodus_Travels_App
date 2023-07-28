@@ -1,6 +1,5 @@
 body {
   background-color: rgb(176, 212, 244) !important;
-  /* border: 2px solid red !important; */
 }
 
 .container {
@@ -12,11 +11,11 @@ body {
 
 .left-section {
   flex: 1;
-  margin-right: 20px;
 }
 
 .right-section {
   flex: 1;
+  margin-right: 20px;
 }
 
 .form-card {
