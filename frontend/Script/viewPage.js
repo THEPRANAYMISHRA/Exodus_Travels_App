@@ -13,7 +13,7 @@ window.onload = async () => {
     const item_id = JSON.parse(localStorage.getItem("viewMore"));
 
     try {
-        const res = await fetch("https://exodustravels.cyclic.app/search/view", {
+        const res = await fetch("https://exodustravels.onrender.com/search/view", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -125,7 +125,7 @@ prevBtn.addEventListener('click', prevImage);
 
 function handleBookBtn(val) {
     if (token) {
-        fetch('https://exodustravels.cyclic.app/user/validate-token', {
+        fetch('https://exodustravels.onrender.com/user/validate-token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

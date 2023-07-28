@@ -35,7 +35,7 @@ let item_id = JSON.parse(localStorage.getItem("viewMore"))
 
 window.onload = async () => {
     try {
-        let res = await fetch("https://exodustravels.cyclic.app/search/view", {
+        let res = await fetch("https://exodustravels.onrender.com/search/view", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -83,7 +83,7 @@ paymentform.addEventListener('submit', function (event) {
     };
 
     // uploading data to server
-    fetch('https://exodustravels.cyclic.app/order/booknow', {
+    fetch('https://exodustravels.onrender.com/order/booknow', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
