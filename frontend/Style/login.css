@@ -1,109 +1,131 @@
-*{
-    margin: 0;
+* {
+  margin: 0;
 }
 .login-bg {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: url("https://www.beautifulworld.com//wp-content/uploads/2017/07/Srinager-Dal-Lake-1024x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.login-bg > form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.login-bg > form img {
+  width: 20%;
+}
+
+.login-bg > form > input {
+  padding: 0.6rem 2rem;
+  border-radius: 0.1rem;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+  border-width: 0 0 2px;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+input[type="text"]:focus {
+  border: 1px solid #3e7eff;
+}
+
+#loginBtn,
+#SendotpBtn,
+#verifyBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: 200ms;
+  width: 100%;
+  background-color: rgb(79, 152, 255);
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-weight: bolder;
+  color: white;
+}
+
+#loginBtn:hover,
+#SendotpBtn:hover,
+#verifyBtn:hover {
+  transform: scale(0.95);
+  background-color: #347eff;
+  cursor: pointer;
+}
+
+#switchBtn {
+  outline: none;
+  border: none;
+  padding: 0.1rem;
+  cursor: pointer;
+  background-color: white;
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 85%;
   }
-  
-  .login-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("https://www.beautifulworld.com//wp-content/uploads/2017/07/Srinager-Dal-Lake-1024x768.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: blur(3px); /* Adjust the blur intensity as needed */
-    z-index: -1;
+}
+
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 75%;
   }
-  
-.login-bg>form{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap:2rem;
-    padding:3rem;
-    background-color: white;
-    border-radius:1rem;
-    z-index:2;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.login-bg>form img{
-    width:100px;
-}
-
-.login-bg>form>input{
-    padding:.6rem 3rem;
-    border-radius:.1rem;
-    -webkit-transition: 0.1s;
-    transition: 0.1s;
-    outline: none;
-    border-width: 0 0 2px;
-}
-
-input[type=text]:focus {
-    border: 1px solid #3e7eff;
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 60%;
   }
-
-#loginBtn,#signupBtn{
-    padding:.5rem 1rem;
-    border-radius:.5rem;
-    transition:200ms;
-    width:100%;
-    background-color:rgb(79, 152, 255);
-    border:none;
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    font-weight: bolder;
-    color: white;
 }
 
-#loginBtn:hover,#signupBtn:hover{
-    transform: scale(0.95);
-    background-color:#347eff;
-    cursor: pointer;
+#SendotpBtn {
+  display: none;
 }
 
-#switchBtn{
-    outline:none;
-    border: none;
-    padding:.1rem;
-    cursor: pointer;
-    background-color: white;
-    text-decoration: underline;
-    font-weight: bolder;
+#name {
+  display: none;
 }
 
-@media screen and (max-width: 650px){
-    html{
-        font-size:55%;
-    }
+#key {
+  display: none;
 }
 
-@media screen and (max-width: 450px){
-    html{
-        font-size:35%;
-    }
+#verifyBtn {
+  display: none;
 }
 
-@media screen and (max-width: 250px){
-    html{
-        font-size:20%;
-    }
-}
-
-#signupBtn{
-    display: none;
-}
-
-#key{
-    display: none;
+#otp {
+  display: none;
 }

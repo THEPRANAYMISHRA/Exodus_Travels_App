@@ -9,41 +9,40 @@ searchRouter.post("/available/:view", async (req, res) => {
 
     let { checkin, checkout, city, from, to, depaturedate, returndate, pickuplocation, dropofflocation, pickuptime } = req.body
 
-    console.log(lookingfor)
-    console.log(req.body)
-
     if (lookingfor == 'Stays') {
         try {
-            let data = await StaysModel.find({
-                city: city
-            })
+            const regexCity = new RegExp(`\\b${city}`, "i");
 
-            console.log(data)
-            return res.send(data)
+            let data = await StaysModel.find({ city: regexCity });
+            return res.send(data);
         } catch (error) {
-            res.status(400).send({ "msg": "No hotels available!" })
+            res.status(400).send({ "msg": "No hotels available!" });
         }
+
     } else if (lookingfor == "Flights") {
         try {
-            let data = await FlightsModel.find({
-                from: from,
-                to: to
-            })
+            const regexFrom = new RegExp(`\\b${from}`, "i");
+            const regexTo = new RegExp(`\\b${to}`, "i");
 
-            console.log(data)
-            return res.send(data)
+            let data = await FlightsModel.find({
+                "departure.airport": regexFrom,
+                "arrival.airport": regexTo
+            });
+            return res.send(data);
         } catch (error) {
-            res.status(400).send({ "msg": "No flights available!" })
+            res.status(400).send({ "msg": "No flights available!" });
         }
     } else {
         try {
-            let data = await CarsModel.find({
-                city: dropofflocation
-            })
-            return res.send(data)
+            const regexDropoffLocation = new RegExp(`\\b${dropofflocation}`, "i");
+
+            let data = await CarsModel.find({ city: regexDropoffLocation });
+
+            return res.send(data);
         } catch (error) {
-            res.status(400).send({ "msg": "No cars available!" })
+            res.status(400).send({ "msg": "No cars available!" });
         }
+
     }
 })
 

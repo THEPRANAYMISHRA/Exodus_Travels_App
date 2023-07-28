@@ -1,34 +1,49 @@
-const express = require("express")
-const bookingRouter = express.Router()
-const UserModal = require("../model/user.model")
-const auth = require("../middleware/notes.middleware")
-// const BoookingModel = require("../model/booking.model")
-const cors = require("cors")
+const express = require("express");
+const bookingRouter = express.Router();
+const UserModal = require("../model/user.model");
+const OrderModel = require("../model/order.model");
+const StaysModel = require('../model/stays.model');
+const FlightsModel = require('../model/flights.model');
+const CarsModel = require('../model/cars.model');
 
-bookingRouter.get("/history", auth, async (req, res) => {
-    let { userId } = req.body
+// GET bookings route with email as query parameter
+bookingRouter.get("/bookings", async (req, res) => {
+    const { email } = req.body;
+    if (!email) {
+        return res.status(400).send({ "msg": "Email is required in the query parameters." });
+    }
     try {
-        let historydata = await BoookingModel.find({ userId })
+        const regexEmail = new RegExp(email, "i");
+
+        let historydata = await OrderModel.find({ email: regexEmail });
+
         if (historydata.length > 0) {
-            res.send(historydata)
+            return res.send(historydata);
         } else {
-            res.status(400).send({ "msg": "login first!" })
+            return res.status(404).send({ "msg": "No bookings found for the provided email." });
         }
     } catch (error) {
-        res.status(400).send({ "msg": "login first!" })
+        return res.status(500).send({ "msg": "Something went wrong while fetching bookings." });
     }
-})
-
-// bookingRouter.post("/booking", auth, async (req, res) => {
-//     const allBooking=new BoookingModel(req.body)
-//     try {
-//         await allBooking.save()
-//         res.status(200).send({"msg":"boooking successful!"})
-//     } 
-//     catch (error) {
-//         res.status(400).send({"msg":"Something went wrong"})
-//     }
-// })
+});
 
 
-module.exports = bookingRouter
+// POST booknow route
+bookingRouter.post("/booknow", async (req, res) => {
+    const { name, email, booking, mobileNumber, cardNumber, cardholderName, amount, dates, item_id } = req.body;
+
+    // Add validation for required fields
+    if (!name || !email || !booking || !mobileNumber || !cardNumber || !cardholderName || !amount || !dates || !item_id) {
+        return res.status(400).send({ "msg": "All fields are required for booking." });
+    }
+
+    try {
+        const newBooking = new OrderModel({ name, email, booking, mobileNumber, cardNumber, cardholderName, amount, dates, item_id });
+        await newBooking.save();
+        return res.status(200).send({ "msg": "Booking successful! Confirmation email will be sent to your registered email." });
+    } catch (error) {
+        return res.status(500).send({ "msg": "Something went wrong while processing the booking." });
+    }
+});
+
+module.exports = bookingRouter;

@@ -45,42 +45,17 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                class="nav-link active"
+                id="User_profile"
+                href="./Pages/login.html"
+                >Login</a
               >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+              <a class="nav-link active" href="./Pages/history.html">History</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
@@ -97,58 +72,61 @@
 
     <!-- bodypart=========================================================================== -->
     <form>
-      <label for="choose">What're you looking for</label>
+      <label for="choose">Looking for &#x27AE;</label>
       <select name="choose" id="type">
         <option value="Stays">Stays</option>
         <option value="Flights">Flights</option>
         <option value="Cars">Cars</option>
       </select>
       <!-- for hetels========================= -->
-      <div id="formforstays">
-        <input
-          type="text"
-          name="from"
-          id="location"
-          placeholder="Enter location"
-        />
-        <label for="">Check in:</label>
-        <input type="date" id="checkin" />
-        <label for="">Check out:</label>
-        <input type="date" id="checkout" />
+      <div id="formforstays" class="inputGroup">
+        <div class="inputDiv">
+          <label for="from">Name</label>
+          <input type="text" id="location" placeholder="Enter location" />
+        </div>
+        <div class="inputDiv">
+          <label for="checkin">Check in</label>
+          <input type="date" id="checkin" placeholder="Select checkin date" />
+        </div>
+        <div class="inputDiv">
+          <label for="checkout">Check out</label>
+          <input type="date" id="checkout" placeholder="Select checkout date" />
+        </div>
       </div>
       <!-- for flights========================= -->
-      <div id="formforflights" style="display: none">
-        <input
-          type="text"
-          name="from"
-          id="leavingfrom"
-          placeholder="Leaving from"
-        />
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/2926/2926284.png"
-          alt=""
-        />
-        <input type="text" id="goingto" placeholder="Going to" />
-        <label for="">Departing</label>
-        <input type="date" id="departuredate" />
-        <label for="">Returning</label>
-        <input type="date" id="returndate" />
+      <div id="formforflights" style="display: none" class="inputGroup">
+        <div class="inputDiv">
+          <label for="">Enter location</label>
+          <input type="text" id="leavingfrom" placeholder="From" />
+        </div>
+        <div class="inputDiv">
+          <label for="">Enter location</label>
+          <input type="text" id="goingto" placeholder="To" />
+        </div>
+        <div class="inputDiv">
+          <label for="">Departing</label>
+          <input type="date" id="departuredate" />
+        </div>
+
+        <div class="inputDiv">
+          <label for="">Returning</label>
+          <input type="date" id="returndate" />
+        </div>
       </div>
       <!-- for cars============================ -->
-      <div id="formforcars" style="display: none">
-        <input
-          type="text"
-          name="from"
-          id="pickup"
-          placeholder="Pickup location"
-        />
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/2926/2926284.png"
-          alt=""
-        />
-        <input type="text" id="dropoff" placeholder="Drop off location" />
-        <label for="">Pick Up Time</label>
-        <input type="time" id="pickuptime" />
+      <div id="formforcars" style="display: none" class="inputGroup">
+        <div class="inputDiv">
+          <label for="">Enter location</label>
+          <input type="text" id="pickup" placeholder="Pickup location" />
+        </div>
+        <div class="inputDiv">
+          <label for="">Enter location</label>
+          <input type="text" id="dropoff" placeholder="Drop off location" />
+        </div>
+        <div class="inputDiv">
+          <label for="">Pick Up Time</label>
+          <input type="time" id="pickuptime" />
+        </div>
       </div>
       <button id="searchPlans" type="button">Search</button>
     </form>
@@ -157,9 +135,9 @@
     <div id="places">
       <div>
         <div>
-          <h1>Handpicked Collections for You</h1>
-          <div>
+          <div id="controller">
             <button id="leftclick"><</button>
+            <h1>Handpicked Collections for You</h1>
             <button id="rightclick">></button>
           </div>
         </div>
@@ -224,13 +202,8 @@
       </div>
     </div>
 
-    <section id="parent-container">
+    <div id="parent-container">
       <div class="container">
-        <img
-          src="https://img1.wallspic.com/previews/9/1/0/4/5/154019/154019-cloud-mountain-atmosphere-daytime-ecoregion-x750.jpg"
-          alt="Snow"
-          style="width: 100%; border-radius: 20px"
-        />
         <div class="bottom-left-one">
           Save instantly <br />
           with Exodus <br />
@@ -243,11 +216,12 @@
         </div>
         <button id="seememberprices">See Member Prices</button>
       </div>
-    </section>
+    </div>
 
     <!-- ========================================================================== -->
     <footer>
       <div class="box">
+        <button id="ck">Click</button>
         <h2>About Us</h2>
         <p>
           Exodus Travels is a leading adventure travel company offering
