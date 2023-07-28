@@ -5,52 +5,14 @@ let optionEl = document.getElementById("type")
 let formforstays = document.getElementById("formforstays")
 let formforflights = document.getElementById("formforflights")
 let formforcars = document.getElementById("formforcars")
+let User_profile = document.getElementById('User_profile')
 
 window.onload = () => {
-    // let name = localStorage.getItem("name")
-    // if (name) {
-    //     namebox.textContent = `Hello,${name.split(" ")[0].toUpperCase()}`
-    //     loginbtn.style.display = "none"
-    //     logoutbtn.style.display = "block"
-    // } else {
-    //     namebox.textContent = "Profile"
-    // }
-
-    // let checkinbox = document.getElementById("checkin");
-    // let checkoutbox = document.getElementById("checkout");
-
-    // checkinbox.min = getTodayDate();
-    // checkoutbox.min = getTodayDate();
+    let name = localStorage.getItem("name")
+    if (name) {
+        User_profile.textContent = `Hello,${name.split(" ")[0]}`
+    }
 }
-
-// const popupSignIn = document.querySelector("#popup-signin");
-// const popupSignUp = document.querySelector("#popup-signup");
-// const btnSignIn = document.querySelector("#btn-signin");
-// const btnSignUp = document.querySelector("#btn-signup");
-
-// btnSignIn.addEventListener("click", () => {
-//   popupSignIn.style.display = "block";
-//   popupSignUp.style.display = "none";
-// });
-
-// btnSignUp.addEventListener("click", () => {
-//     popupSignUp.style.display = "block";
-//     popupSignIn.style.display = "none";
-// });
-
-// window.addEventListener("click", (event) => {
-//   if (event.target === popupSignIn) {
-//     popupSignIn.style.display = "none";
-//     popupSignUp.style.display = "none";
-//   }
-// });
-
-// window.addEventListener("click", (event) => {
-//   if (event.target === popupSignUp) {
-//     popupSignUp.style.display = "none";
-//     popupSignIn.style.display = "none";
-//   }
-// });
 
 // search===============================================
 // for hotels
@@ -155,4 +117,10 @@ optionEl.addEventListener("change", () => {
         formforflights.style.display = "none";
         formforcars.style.display = "flex";
     }
+})
+
+let ck = document.getElementById('ck')
+
+ck.addEventListener('click', () => {
+    fetch('http://localhost:4500/').then((res) => res.json()).then((data) => console.log(data)).catch((err) => console.log)
 })

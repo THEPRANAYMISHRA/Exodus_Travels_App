@@ -1,23 +1,26 @@
-const express=require("express")
-const app=express()
-const userRoutes=require("./routes/user.routes")
-const searchRoutes=require("./routes/search.routes")
-const bookingRoutes=require("./routes/booking.routes")
-const connection=require("./db")
-const jwt=require("jsonwebtoken")
-const cors=require("cors")
+const express = require("express")
+const app = express()
+const userRoutes = require("./routes/user.routes")
+const searchRoutes = require("./routes/search.routes")
+const bookingRoutes = require("./routes/booking.routes")
+const connection = require("./db")
+const cors = require("cors")
+const cookieParser = require('cookie-parser');
+const auth = require('./middleware/auth.middleware')
+require('dotenv').config()
 
-app.use(cors())
+app.use(cookieParser());
+app.use(cors({
+    credentials: true,
+    origin: 'http://127.0.0.1:5501'
+}));
 app.use(express.json())
-app.use("/user",userRoutes)
-app.use("/search",searchRoutes)
-app.use("/trip",bookingRoutes)
 
-app.get("/",(req,res)=>{
-    res.send({"msg":"You are on the home page"})
-})
+app.use("/user", userRoutes)
+app.use("/search", searchRoutes)
+app.use("/order", auth, bookingRoutes)
 
-app.listen(4500,async()=>{
+app.listen(process.env.port, async () => {
     try {
         await connection
         console.log("connected to db")
