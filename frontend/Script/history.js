@@ -5,7 +5,7 @@ let infoDiv = document.getElementById("infoDiv");
 window.onload = async () => {
     let token = localStorage.getItem("token");
     try {
-        let res = await fetch("http://localhost:4500/order/bookings", {
+        let res = await fetch("https://exodustravels.cyclic.app/order/bookings", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -50,7 +50,7 @@ async function showInformation(item_id) {
     InfoDivOuter.style.display = "flex";
 
     try {
-        const res = await fetch("http://localhost:4500/search/view", {
+        const res = await fetch("https://exodustravels.cyclic.app/search/view", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

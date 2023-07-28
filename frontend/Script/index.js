@@ -118,9 +118,3 @@ optionEl.addEventListener("change", () => {
         formforcars.style.display = "flex";
     }
 })
-
-let ck = document.getElementById('ck')
-
-ck.addEventListener('click', () => {
-    fetch('http://localhost:4500/').then((res) => res.json()).then((data) => console.log(data)).catch((err) => console.log)
-})
