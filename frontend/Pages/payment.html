@@ -34,6 +34,37 @@
     </nav>
 
     <div class="container">
+      <div class="right-section">
+        <div class="card">
+          <div id="showImg">
+            <!-- image will be loaded -->
+          </div>
+          <div class="card-details">
+            <h2>Booking Details</h2>
+            <p>
+              <strong>Location:</strong
+              ><span id="bookingloaction">Loading...</span>
+            </p>
+            <p>
+              <strong>Time:</strong><span id="BookingTimes">Loading...</span>
+            </p>
+            <p>
+              <strong>Dates:</strong><span id="Bookingdates">Not Selected</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="price-details">
+            <h2>Price Details</h2>
+            <p>
+              <strong>Base Price: &#8377; </strong><span id="BasePrice"></span>
+            </p>
+            <p><strong>Tax: &#8377; </strong>150</p>
+            <p><strong>Total: &#8377; </strong><span id="TotalPrice"></span></p>
+          </div>
+        </div>
+      </div>
       <div class="left-section">
         <div class="form-card">
           <form id="payment-form">
@@ -111,38 +142,6 @@
             </div>
             <button type="submit" id="submit-button">Submit Payment</button>
           </form>
-        </div>
-      </div>
-
-      <div class="right-section">
-        <div class="card">
-          <div id="showImg">
-            <!-- image will be loaded -->
-          </div>
-          <div class="card-details">
-            <h2>Booking Details</h2>
-            <p>
-              <strong>Location:</strong
-              ><span id="bookingloaction">Loading...</span>
-            </p>
-            <p>
-              <strong>Time:</strong><span id="BookingTimes">Loading...</span>
-            </p>
-            <p>
-              <strong>Dates:</strong><span id="Bookingdates">Not Selected</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="price-details">
-            <h2>Price Details</h2>
-            <p>
-              <strong>Base Price: &#8377; </strong><span id="BasePrice"></span>
-            </p>
-            <p><strong>Tax: &#8377; </strong>150</p>
-            <p><strong>Total: &#8377; </strong><span id="TotalPrice"></span></p>
-          </div>
         </div>
       </div>
     </div>
