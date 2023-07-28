@@ -33,27 +33,27 @@ function handleUserInput() {
   addMessageright(userMessage, "user");
 
   // Simulate bot response (you can replace this with actual chat bot logic)
-  if(userMessage.includes("hi")||userMessage.includes("hello")||userMessage.includes("help")){
+  if (userMessage.includes("hi") || userMessage.includes("hello") || userMessage.includes("help")) {
     const botMessage = "Hello,I am Veronica,How can i help you?";
-    setTimeout(function() {
-        addMessage(botMessage, "bot");
-    },1000);
-  }else if(userMessage.includes("refund")){
+    setTimeout(function () {
+      addMessage(botMessage, "bot");
+    }, 1000);
+  } else if (userMessage.includes("refund")) {
     const botMessage = "Please,Provide me your booking number. \n follow after this 'refundno-'.";
-    setTimeout(function() {
-        addMessage(botMessage, "bot");
-    },1000);
-  }else if(userMessage.includes("contact")){
+    setTimeout(function () {
+      addMessage(botMessage, "bot");
+    }, 1000);
+  } else if (userMessage.includes("contact")) {
     const botMessage = "Dear customer,You can contact us here- \n email-exodus@contact.com \n Phone- +1800 4500 6500";
-    setTimeout(function() {
-        addMessage(botMessage, "bot");
-    },1000);
-  }else if(userMessage.includes("cancel")){
+    setTimeout(function () {
+      addMessage(botMessage, "bot");
+    }, 1000);
+  } else if (userMessage.includes("cancel")) {
     const botMessage = "Please,Provide me your booking number. \n Which You want to cancel. \n follow this 'bookingno-'.";
-    setTimeout(function() {
-        addMessage(botMessage, "bot");
-    },1000);
-  }else if(userMessage.includes("bookings")){
+    setTimeout(function () {
+      addMessage(botMessage, "bot");
+    }, 1000);
+  } else if (userMessage.includes("bookings")) {
     getbookings();
   }
 
@@ -64,23 +64,23 @@ function handleUserInput() {
 sendBtn.addEventListener("click", handleUserInput);
 
 
-async function getbookings(){
-    let token=localStorage.getItem("token")
-        try {
-            let res=await fetch("http://localhost:4500/trip/history",{
-                    method:"GET",
-                    headers:{
-                        "Content-Type":"application/json",
-                        "Authorization":`Bearer ${token}`
-                    }
-                })
-            res=await res.json()
-            // const botMessage =res;
-            // addMessage(botMessage, "bot");
-            console.log(res)
-    } catch (error) {
-        console.log(error)
-    }
+async function getbookings() {
+  let token = localStorage.getItem("token")
+  try {
+    let res = await fetch("https://exodustravels.cyclic.app/trip/history", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    res = await res.json()
+    // const botMessage =res;
+    // addMessage(botMessage, "bot");
+    console.log(res)
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 

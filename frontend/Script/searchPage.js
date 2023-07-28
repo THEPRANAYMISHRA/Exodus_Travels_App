@@ -4,7 +4,7 @@ let searchingfor = JSON.parse(localStorage.getItem("Searching for"))
 
 window.onload = async () => {
     try {
-        let res = await fetch(`http://localhost:4500/search/available/${searchingfor}`, {
+        let res = await fetch(`https://exodustravels.cyclic.app/search/available/${searchingfor}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -78,7 +78,7 @@ function DisplayStays(data) {
 
         let imgDiv = document.createElement("div")
 
-        imgDiv.style.backgroundImage = `URL('${e.image || "https://static.leonardo-hotels.com/image/executive-room-with-king-bed_35ba711c8e3052877659372a86e4bb3a_2048x1365_desktop_2.jpeg"}')`
+        imgDiv.style.backgroundImage = `URL('${e.images[0] || "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png"}')`
 
         let name = document.createElement("h5")
         name.textContent = `${e.name}`

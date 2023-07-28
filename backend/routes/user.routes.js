@@ -35,7 +35,6 @@ userRouter.post("/otp", async (req, res) => {
             res.status(400).send({ "msg": "OTP couldn't be sent!" });
         }
     }
-
 })
 
 //==============================================================
@@ -93,33 +92,34 @@ userRouter.post('/login', async (req, res) => {
 
 
 function sendEmail(receiver, otp) {
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'pmcanvas4501@gmail.com',
-            pass: process.env.nodemailer
-        }
-    });
+    return new Promise((resolve, reject) => {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.nodeEmail,
+                pass: process.env.nodemailer // Make sure this environment variable is set correctly
+            }
+        });
 
-    var mailOptions = {
-        from: 'exodustravels@gmail.com',
-        to: receiver,
-        subject: 'Exodus Travel Registration',
-        text: 'This is your OTP for verification!',
-        html: `<h3>This is your OTP for verification!</h3><br>
-        <h1>${otp}</h1>`
-    };
+        const mailOptions = {
+            from: 'exodustravels@gmail.com',
+            to: receiver,
+            subject: 'Exodus Travel Registration',
+            text: 'This is your OTP for verification!',
+            html: `<h5>This is your OTP for verification!</h5><br><h3>${otp}</h3>`
+        };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-            return error
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.error(error);
+                reject(error); // Reject the Promise with the error object
+            } else {
+                console.log('Email sent: ' + info.response);
+                resolve(info); // Resolve the Promise with the email sending info
+            }
+        });
     });
 }
-
 
 function generateOTP() {
     var digits = '0123456789';

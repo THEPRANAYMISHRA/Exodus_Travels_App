@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", async (e) => {
         pass: password.value
     }
 
-    fetch("http://localhost:4500/user/login", {
+    fetch("https://exodustravels.cyclic.app/user/login", {
         method: "POST",
         credentials: 'include',
         headers: {
@@ -50,7 +50,7 @@ SendotpBtn.addEventListener("click", async (e) => {
         name: nameEl.value
     }
 
-    fetch("http://localhost:4500/user/otp", {
+    fetch("https://exodustravels.cyclic.app/user/otp", {
         method: "POST",
         credentials: 'include',
         headers: {
@@ -76,7 +76,7 @@ verifyBtn.addEventListener("click", async (e) => {
         otp: otpEl.value
     }
 
-    fetch("http://localhost:4500/user/verify", {
+    fetch("https://exodustravels.cyclic.app/user/verify", {
         method: "POST",
         credentials: 'include',
         headers: {

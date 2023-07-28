@@ -16,6 +16,7 @@ let BasePriceEl = document.getElementById('BasePrice')
 let ToatlPriceEl = document.getElementById('TotalPrice')
 let dates = document.getElementById('selectdate')
 let BookingTimes = document.getElementById('BookingTimes')
+let Bookingdates = document.getElementById('Bookingdates')
 
 
 flatpickr("#selectdate", { mode: "range", minDate: "today" });
@@ -34,7 +35,7 @@ let item_id = JSON.parse(localStorage.getItem("viewMore"))
 
 window.onload = async () => {
     try {
-        let res = await fetch("http://localhost:4500/search/view", {
+        let res = await fetch("https://exodustravels.cyclic.app/search/view", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -42,14 +43,20 @@ window.onload = async () => {
             body: JSON.stringify({ _id: item_id })
         })
         res = await res.json()
+        console.log(res)
         showImg.style.backgroundImage = 'url(https://cdn.dribbble.com/users/523866/screenshots/4044272/ezgif-4-21c63605ef.gif)';
-        bookingloaction.textContent = res.departure.airport
+        if (res.departure) {
+            bookingloaction.textContent = res.departure.airport;
+            BookingTimes.innerHTML = new Date(res.departure.datetime).toLocaleDateString('en-US', options)
+        } else {
+            bookingloaction.textContent = res.city;
+            BookingTimes.innerHTML = '11:00 AM';
+        }
         const price = res.prices[localStorage.getItem('plan')]
-        BookingTimes.innerHTML = new Date(res.departure.datetime).toLocaleDateString('en-US', options) || '11:00 AM'
         BasePriceEl.textContent = `${price}`
         ToatlPriceEl.textContent = `${price + 150}`
     } catch (error) {
-        console.log(error)
+        alert('Failed to fetch!,Try again!')
     }
 }
 
@@ -76,7 +83,7 @@ paymentform.addEventListener('submit', function (event) {
     };
 
     // uploading data to server
-    fetch('http://localhost:4500/order/booknow', {
+    fetch('https://exodustravels.cyclic.app/order/booknow', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -95,6 +102,31 @@ paymentform.addEventListener('submit', function (event) {
             window.location.href = './login.html'
         });
 });
+
+
+dates.addEventListener('change', () => {
+    let date = dates.value.split(" ")
+
+    Bookingdates.textContent = dates.value
+
+    if (date[0], date[2]) {
+        ToatlPriceEl.textContent = Number(BasePriceEl.innerText) * calculateDaysBetweenDates(date[0], date[2]) + 150
+    } else {
+        ToatlPriceEl.textContent = Number(BasePriceEl.innerText)
+    }
+})
+
+function calculateDaysBetweenDates(startDate, endDate) {
+    const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    const timeDifference = endDateObj - startDateObj;
+
+    const numberOfDays = Math.round(timeDifference / oneDayInMilliseconds);
+
+    return numberOfDays + 1;
+}
+
 
 
 
