@@ -97,12 +97,6 @@ input[type="text"]:focus {
   html {
     font-size: 85%;
   }
-  .login-bg > form {
-    height: 65%;
-  }
-  .login-bg > form img {
-    width: 25%;
-  }
 }
 
 @media screen and (max-width: 650px) {
@@ -110,7 +104,7 @@ input[type="text"]:focus {
     font-size: 75%;
   }
   .login-bg > form {
-    height: 75%;
+    height: 65%;
   }
   .login-bg > form img {
     width: 30%;
