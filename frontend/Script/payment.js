@@ -18,6 +18,8 @@ let dates = document.getElementById('selectdate')
 let BookingTimes = document.getElementById('BookingTimes')
 let Bookingdates = document.getElementById('Bookingdates')
 let dynamicInputs = document.querySelectorAll('.dynamicInputs')
+let SelectTrip = document.querySelector('.SelectTrip')
+let selectTripRadios = document.querySelectorAll(".SelectTrip input[type='radio']");
 
 
 flatpickr("#selectdate", { mode: "range", minDate: "today" });
@@ -48,12 +50,18 @@ window.onload = async () => {
         if (res.departure) {
             bookingloaction.textContent = res.departure.airport;
             BookingTimes.innerHTML = new Date(res.departure.datetime).toLocaleDateString('en-US', options)
+            selectTripRadios.forEach((ele) => {
+                ele.addEventListener("change", () => {
+                    console.log(ele.value)
+                })
+            })
         } else {
             bookingloaction.textContent = res.city;
             BookingTimes.innerHTML = '11:00 AM';
             dynamicInputs.forEach((element) => {
                 element.style.display = 'block';
             });
+            SelectTrip.style.display = 'none';
         }
         const price = res.prices[localStorage.getItem('plan')]
         BasePriceEl.textContent = `${price}`
