@@ -17,7 +17,7 @@ let ToatlPriceEl = document.getElementById('TotalPrice')
 let dates = document.getElementById('selectdate')
 let BookingTimes = document.getElementById('BookingTimes')
 let Bookingdates = document.getElementById('Bookingdates')
-let dynamicInputs = document.getElementsByClassName('dynamicInputs')
+let dynamicInputs = document.querySelectorAll('.dynamicInputs')
 
 
 flatpickr("#selectdate", { mode: "range", minDate: "today" });
@@ -51,6 +51,9 @@ window.onload = async () => {
         } else {
             bookingloaction.textContent = res.city;
             BookingTimes.innerHTML = '11:00 AM';
+            dynamicInputs.forEach((element) => {
+                element.style.display = 'block';
+            });
         }
         const price = res.prices[localStorage.getItem('plan')]
         BasePriceEl.textContent = `${price}`
