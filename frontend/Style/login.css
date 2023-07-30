@@ -103,12 +103,6 @@ input[type="text"]:focus {
   html {
     font-size: 75%;
   }
-  .login-bg > form {
-    height: 65%;
-  }
-  .login-bg > form img {
-    width: 30%;
-  }
 }
 
 @media screen and (max-width: 450px) {
