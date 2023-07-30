@@ -57,8 +57,10 @@ window.onload = async () => {
                 ele.addEventListener("change", () => {
                     if (ele.value == 'One way trip') {
                         BasePriceEl.textContent = `${price}`
+                        ToatlPriceEl.textContent = `${price + 150}`
                     } else {
                         BasePriceEl.textContent = (`${parseInt(BasePriceEl.textContent) * 2}`)
+                        ToatlPriceEl.textContent = `${parseInt(BasePriceEl.textContent) * 2 + 150}`
                     }
                 })
             })
