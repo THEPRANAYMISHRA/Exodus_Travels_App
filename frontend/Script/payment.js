@@ -17,6 +17,7 @@ let ToatlPriceEl = document.getElementById('TotalPrice')
 let dates = document.getElementById('selectdate')
 let BookingTimes = document.getElementById('BookingTimes')
 let Bookingdates = document.getElementById('Bookingdates')
+let dynamicInputs = document.getElementsByClassName('dynamicInputs')
 
 
 flatpickr("#selectdate", { mode: "range", minDate: "today" });
@@ -43,11 +44,11 @@ window.onload = async () => {
             body: JSON.stringify({ _id: item_id })
         })
         res = await res.json()
-        console.log(res)
         showImg.style.backgroundImage = 'url(https://cdn.dribbble.com/users/523866/screenshots/4044272/ezgif-4-21c63605ef.gif)';
         if (res.departure) {
             bookingloaction.textContent = res.departure.airport;
             BookingTimes.innerHTML = new Date(res.departure.datetime).toLocaleDateString('en-US', options)
+            dynamicInputs.style.display = 'none'
         } else {
             bookingloaction.textContent = res.city;
             BookingTimes.innerHTML = '11:00 AM';

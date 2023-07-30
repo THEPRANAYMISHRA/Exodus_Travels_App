@@ -102,6 +102,10 @@ button:hover {
   background-size: cover;
 }
 
+.dynamicInputs {
+  border: 5px solid red;
+}
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 75%;
