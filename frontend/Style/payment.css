@@ -103,7 +103,7 @@ button:hover {
 }
 
 .dynamicInputs {
-  border: 5px solid red;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
