@@ -46,13 +46,20 @@ window.onload = async () => {
             body: JSON.stringify({ _id: item_id })
         })
         res = await res.json()
+        const price = res.prices[localStorage.getItem('plan')]
+        BasePriceEl.textContent = `${price}`
+        ToatlPriceEl.textContent = `${price + 150}`
         showImg.style.backgroundImage = 'url(https://cdn.dribbble.com/users/523866/screenshots/4044272/ezgif-4-21c63605ef.gif)';
         if (res.departure) {
             bookingloaction.textContent = res.departure.airport;
             BookingTimes.innerHTML = new Date(res.departure.datetime).toLocaleDateString('en-US', options)
             selectTripRadios.forEach((ele) => {
                 ele.addEventListener("change", () => {
-                    console.log(ele.value)
+                    if (ele.value == 'One way trip') {
+                        BasePriceEl.textContent = `${price}`
+                    } else {
+                        BasePriceEl.textContent = (`${parseInt(BasePriceEl.textContent) * 2}`)
+                    }
                 })
             })
         } else {
@@ -63,9 +70,6 @@ window.onload = async () => {
             });
             SelectTrip.style.display = 'none';
         }
-        const price = res.prices[localStorage.getItem('plan')]
-        BasePriceEl.textContent = `${price}`
-        ToatlPriceEl.textContent = `${price + 150}`
     } catch (error) {
         alert('Failed to fetch!,Try again!')
     }
