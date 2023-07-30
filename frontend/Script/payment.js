@@ -48,7 +48,6 @@ window.onload = async () => {
         if (res.departure) {
             bookingloaction.textContent = res.departure.airport;
             BookingTimes.innerHTML = new Date(res.departure.datetime).toLocaleDateString('en-US', options)
-            dynamicInputs.style.display = 'none'
         } else {
             bookingloaction.textContent = res.city;
             BookingTimes.innerHTML = '11:00 AM';
