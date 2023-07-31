@@ -4,7 +4,7 @@ Exodus Travels is a web application that allows users to search and book tickets
 
 ## Getting Started 🌐✈️
 
-To get started with Exodus Travels, simply navigate to our website at [Exodus Travels](https://timely-quokka-3157f4.netlify.app/). From there, you can search for and book your travel plans.
+To get started with Exodus Travels, simply navigate to our website at [Exodus Travels](https://exodustravels.netlify.app/). From there, you can search for and book your travel plans.
 
 ## Tech-Stack 🛠️
 
@@ -29,11 +29,11 @@ Thank you for using Exodus Travels! Happy travels! 🌏✨
 ## Home Page
 ![Screenshot 1](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/5a686f2d-2c16-481c-8305-efdd7607661a)
 ![Screenshot 2](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/1ede8dd9-c090-4e42-ae1d-7a539c391c5d)
-![Screenshot 3](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/4da1eacf-eead-4224-9aee-fdb151c3e5d9)
 
 ## Login and Signup
 ![Screenshot 1](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/12c059b1-5d9c-4ae2-8d91-43d16cbd4787)
-![Screenshot 2](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/11c23524-3a12-415b-bb3c-c687e5d87a18)
+![Screenshot 2](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/4da1eacf-eead-4224-9aee-fdb151c3e5d9)
+![Screenshot 3](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/11c23524-3a12-415b-bb3c-c687e5d87a18)
 
 ## Landing Page And Search
 ![Screenshot](https://github.com/THEPRANAYMISHRA/tranquil-engine-3054/assets/115460435/a8436e82-c450-4470-926e-d52b53e526b4)
