@@ -33,14 +33,14 @@ bookingRouter.post("/booknow", async (req, res) => {
     const { name, email, booking, mobileNumber, cardNumber, cardholderName, amount, dates, item_id } = req.body;
 
     // Add validation for required fields
-    if (!name || !email || !booking || !mobileNumber || !cardNumber || !cardholderName || !amount || !dates || !item_id) {
+    if (!name || !email || !booking || !mobileNumber || !cardNumber || !cardholderName || !amount || !item_id) {
         return res.status(400).send({ "msg": "All fields are required for booking." });
     }
 
     try {
         const newBooking = new OrderModel({ name, email, booking, mobileNumber, cardNumber, cardholderName, amount, dates, item_id });
         await newBooking.save();
-        return res.status(200).send({ "msg": "Booking successful! Confirmation email will be sent to your registered email." });
+        return res.status(200).send({ "msg": "Booking successful!." });
     } catch (error) {
         return res.status(500).send({ "msg": "Something went wrong while processing the booking." });
     }
