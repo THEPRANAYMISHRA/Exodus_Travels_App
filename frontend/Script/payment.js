@@ -60,7 +60,7 @@ window.onload = async () => {
                         ToatlPriceEl.textContent = `${price + 150}`
                     } else {
                         BasePriceEl.textContent = (`${parseInt(BasePriceEl.textContent) * 2}`)
-                        ToatlPriceEl.textContent = `${parseInt(BasePriceEl.textContent) * 2 + 150}`
+                        ToatlPriceEl.textContent = `${parseInt(BasePriceEl.textContent) + 150}`
                     }
                 })
             })
@@ -76,7 +76,21 @@ window.onload = async () => {
         alert('Failed to fetch!,Try again!')
     }
 }
+function validateExpirationDate(inputValue) {
+    const expirationDateInput = document.getElementById("expiration-date");
+    const expirationDateError = document.getElementById("expiration-date-error");
 
+    // Regular expression to check MM/YY format
+    const expirationDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+    if (!expirationDateRegex.test(inputValue)) {
+        expirationDateError.innerText = "Please enter a valid expiration date in MM/YY format.";
+        expirationDateInput.setCustomValidity("Invalid expiration date format");
+    } else {
+        expirationDateError.innerText = "";
+        expirationDateInput.setCustomValidity("");
+    }
+}
 // Event listener for the submit button for payments;
 paymentform.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -108,16 +122,23 @@ paymentform.addEventListener('submit', function (event) {
         },
         body: JSON.stringify(payload)
     })
-        .then((res) => res.json())
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return res.json();
+        })
         .then((data) => {
-            alert(data.msg)
-            window.location.href = '../index.html'
+            alert(data.msg);
+            window.location.href = '../index.html';
         })
         .catch((error) => {
-            alert('Session Experied,Please login again!')
+            alert('Session Expired, Please login again!');
             localStorage.removeItem('token');
-            window.location.href = './login.html'
+            localStorage.removeItem('name');
+            window.location.href = './login.html';
         });
+
 });
 
 

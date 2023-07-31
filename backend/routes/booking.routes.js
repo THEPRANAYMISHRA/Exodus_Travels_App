@@ -33,17 +33,35 @@ bookingRouter.post("/booknow", async (req, res) => {
     const { name, email, booking, mobileNumber, cardNumber, cardholderName, amount, dates, item_id } = req.body;
 
     // Add validation for required fields
-    if (!name || !email || !booking || !mobileNumber || !cardNumber || !cardholderName || !amount || !dates || !item_id) {
+    if (!name || !email || !booking || !mobileNumber || !cardNumber || !cardholderName || !amount || !item_id) {
         return res.status(400).send({ "msg": "All fields are required for booking." });
+    }
+
+    // Add regex validations
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileNumberRegex = /^\d{10}$/;
+    const cardNumberRegex = /^\d{16}$/;
+
+    if (!emailRegex.test(email)) {
+        return res.status(400).send({ "msg": "Please provide a valid email address." });
+    }
+
+    if (!mobileNumberRegex.test(mobileNumber)) {
+        return res.status(400).send({ "msg": "Please provide a valid 10-digit mobile number." });
+    }
+
+    if (!cardNumberRegex.test(cardNumber)) {
+        return res.status(400).send({ "msg": "Please provide a valid 16-digit card number." });
     }
 
     try {
         const newBooking = new OrderModel({ name, email, booking, mobileNumber, cardNumber, cardholderName, amount, dates, item_id });
         await newBooking.save();
-        return res.status(200).send({ "msg": "Booking successful! Confirmation email will be sent to your registered email." });
+        return res.status(200).send({ "msg": "Booking successful!." });
     } catch (error) {
         return res.status(500).send({ "msg": "Something went wrong while processing the booking." });
     }
 });
+
 
 module.exports = bookingRouter;
