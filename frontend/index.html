@@ -42,9 +42,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
               <a
                 class="nav-link active"
                 id="User_profile"
@@ -72,8 +69,8 @@
 
     <!-- bodypart=========================================================================== -->
     <form>
-      <label for="choose">Looking for &#x27AE;</label>
       <select name="choose" id="type">
+        <option value="" disabled selected>Select an option</option>
         <option value="Stays">Stays</option>
         <option value="Flights">Flights</option>
         <option value="Cars">Cars</option>
@@ -96,12 +93,12 @@
       <!-- for flights========================= -->
       <div id="formforflights" style="display: none" class="inputGroup">
         <div class="inputDiv">
-          <label for="">Enter location</label>
-          <input type="text" id="leavingfrom" placeholder="From" />
+          <label for="">From</label>
+          <input type="text" id="leavingfrom" placeholder="Enter location" />
         </div>
         <div class="inputDiv">
-          <label for="">Enter location</label>
-          <input type="text" id="goingto" placeholder="To" />
+          <label for="">To</label>
+          <input type="text" id="goingto" placeholder="Enter location" />
         </div>
         <div class="inputDiv">
           <label for="">Departing</label>

@@ -36,6 +36,14 @@ body > form {
   gap: 1rem;
 }
 
+.inputGroup input {
+  width: 180px;
+}
+
+.inputGroup label {
+  font-weight: bolder;
+}
+
 .inputDiv {
   display: flex;
   flex-direction: column;
@@ -84,13 +92,14 @@ body > form > button:hover {
 }
 #places > div {
   height: 100%;
-  width: 80%;
+  width: 90%;
   display: block;
   margin: auto;
   padding: 1rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   border-radius: 10px;
 }
 #places > div > div:nth-child(1) {
@@ -160,15 +169,16 @@ body > form > button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1% 0.5% 1% 0.5%;
   text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.55);
+  padding: 2% 0%;
 }
 .container {
-  background-image: url("https://img1.wallspic.com/previews/9/1/0/4/5/154019/154019-cloud-mountain-atmosphere-daytime-ecoregion-x750.jpg");
+  background-color: aliceblue;
+  background-image: url("https://i.pinimg.com/originals/91/fc/54/91fc549c130f969b61afa9065ad2132d.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 75%;
+  width: 90%;
   overflow: hidden;
   height: 60vh;
   border-radius: 1rem;
@@ -180,7 +190,7 @@ body > form > button:hover {
 .bottom-left-one {
   position: absolute;
   text-align: left;
-  font-size: 2rem;
+  font-size: 3rem;
   bottom: 30%;
   left: 3%;
 }
@@ -217,12 +227,12 @@ body > form > button:hover {
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .footer-logo img {
-  max-width: 70px;
+  max-width: 65px;
 }
 
 .footer-links ul {
@@ -272,18 +282,16 @@ body > form > button:hover {
   text-align: center;
   margin-top: 20px;
 }
-/* Existing styles... */
-
 .footer-details {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1rem;
 }
 
 .footer-address,
 .footer-newsletter {
-  flex: 1 0 300px;
+  flex: 1 0 100px;
   margin-bottom: 20px;
 }
 
@@ -309,11 +317,6 @@ body > form > button:hover {
   cursor: pointer;
 }
 
-/* Existing styles... */
-
-/* Media Queries */
-
-/* Adjust navigation styles for smaller screens */
 @media screen and (max-width: 768px) {
   html {
     font-size: 85%;
@@ -324,9 +327,6 @@ body > form > button:hover {
   body > form > div {
     flex-direction: column;
   }
-  /* #parent-container {
-    font-size: 55%;
-  } */
 }
 
 /* Adjust form styles for smaller screens */
