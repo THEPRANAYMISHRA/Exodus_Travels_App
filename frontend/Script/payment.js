@@ -76,7 +76,21 @@ window.onload = async () => {
         alert('Failed to fetch!,Try again!')
     }
 }
+function validateExpirationDate(inputValue) {
+    const expirationDateInput = document.getElementById("expiration-date");
+    const expirationDateError = document.getElementById("expiration-date-error");
 
+    // Regular expression to check MM/YY format
+    const expirationDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+    if (!expirationDateRegex.test(inputValue)) {
+        expirationDateError.innerText = "Please enter a valid expiration date in MM/YY format.";
+        expirationDateInput.setCustomValidity("Invalid expiration date format");
+    } else {
+        expirationDateError.innerText = "";
+        expirationDateInput.setCustomValidity("");
+    }
+}
 // Event listener for the submit button for payments;
 paymentform.addEventListener('submit', function (event) {
     event.preventDefault();
