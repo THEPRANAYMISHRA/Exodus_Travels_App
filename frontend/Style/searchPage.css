@@ -180,7 +180,7 @@ body {
 }
 
 #showdata > div > div:nth-child(1) {
-  width: 35%;
+  width: 25%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -228,6 +228,9 @@ body {
 @media screen and (max-width: 1000px) {
   html {
     font-size: 85%;
+  }
+  #showdata > div > div:nth-child(1) {
+    width: 35%;
   }
 }
 
