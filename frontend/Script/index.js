@@ -5,10 +5,14 @@ let formforflights = document.getElementById("formforflights")
 let formforcars = document.getElementById("formforcars")
 let User_profile = document.getElementById('User_profile')
 let loginbtn = document.getElementById('login-option')
+let datesInp = document.querySelectorAll("input[type='date']")
 
 window.onload = async () => {
     let name = localStorage.getItem("name")
     let token = localStorage.getItem('token')
+    datesInp.forEach((ele) => {
+        ele.setAttribute.min = getTodayDate()
+    })
     if (token) {
         if (validateUser(token)) {
             User_profile.classList.remove('d-none')
