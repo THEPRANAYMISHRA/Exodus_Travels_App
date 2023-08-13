@@ -74,7 +74,7 @@ userRouter.post('/login', async (req, res) => {
             try {
                 bcrypt.compare(pass, user.pass, async (err, result) => {
                     if (result) {
-                        let token = jwt.sign({ email: email }, 'secret', { expiresIn: 60 * 60 })
+                        let token = jwt.sign({ email: email }, 'secret', { expiresIn: "24h" })
                         // res.cookie('jwt', token, { httpOnly: true, sameSite: 'none', secure: true })
                         return res.status(200).send({ "msg": "Login Successful!", "name": user.name, "token": token })
                     } else {
