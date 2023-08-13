@@ -13,7 +13,6 @@ window.onload = async () => {
             },
         });
         res = await res.json();
-        console.log(res);
         DisplayCards(res);
     } catch (error) {
         alert("Session is expired,Please login again!");

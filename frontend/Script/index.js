@@ -1,16 +1,42 @@
 let namebox = document.querySelector(".dropdown>p")
-let logoutbtn = document.getElementById("btn-signout")
-let loginbtn = document.getElementById("btn-signin")
 let optionEl = document.getElementById("type")
 let formforstays = document.getElementById("formforstays")
 let formforflights = document.getElementById("formforflights")
 let formforcars = document.getElementById("formforcars")
 let User_profile = document.getElementById('User_profile')
+let loginbtn = document.getElementById('login-option')
 
-window.onload = () => {
+window.onload = async () => {
     let name = localStorage.getItem("name")
-    if (name) {
-        User_profile.textContent = `Hello,${name.split(" ")[0]}`
+    let token = localStorage.getItem('token')
+    if (token) {
+        if (validateUser(token)) {
+            User_profile.classList.remove('d-none')
+            loginbtn.classList.add('d-none')
+            User_profile.textContent = `Hello,${name.split(" ")[0]}`
+        } else {
+            alert("Session is expired,Please login again!");
+            localStorage.removeItem('token')
+            localStorage.removeItem('name')
+            window.location.href = "./login.html";
+        }
+    }
+}
+
+
+async function validateUser(token) {
+    try {
+        let res = await fetch("https://exodustravels.onrender.com/order/bookings", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        res = await res.json();
+        return true
+    } catch (error) {
+        return false
     }
 }
 

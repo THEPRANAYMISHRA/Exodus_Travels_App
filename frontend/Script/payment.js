@@ -130,13 +130,13 @@ paymentform.addEventListener('submit', function (event) {
         })
         .then((data) => {
             alert(data.msg);
-            window.location.href = '../index.html';
+            // window.location.href = '../index.html';
         })
         .catch((error) => {
             alert('Session Expired, Please login again!');
             localStorage.removeItem('token');
             localStorage.removeItem('name');
-            window.location.href = './login.html';
+            // window.location.href = './login.html';
         });
 
 });
