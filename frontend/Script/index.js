@@ -11,8 +11,9 @@ window.onload = async () => {
     let name = localStorage.getItem("name")
     let token = localStorage.getItem('token')
     datesInp.forEach((ele) => {
-        ele.setAttribute.min = getTodayDate()
-    })
+        ele.setAttribute('min', getTodayDate());
+    });
+
     if (token) {
         if (validateUser(token)) {
             User_profile.classList.remove('d-none')
