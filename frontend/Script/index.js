@@ -173,6 +173,7 @@ async function handleInputSearch() {
             body: JSON.stringify({ city: locationEl.value })
         })
         res = await res.json();
+        console.log(res);
         displayListOfAvailableCities(res);
     } catch (error) {
         alert("Failed to fetch data!")
