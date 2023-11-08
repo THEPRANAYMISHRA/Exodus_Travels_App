@@ -51,8 +51,10 @@ body > form {
 }
 
 .showingAvailableSearchResults {
+  display: none;
   position: absolute;
-  background-color: red;
+  background-color: white;
+  border-radius: 0 0 0.5rem 0.5rem;
   margin-top: 0.5rem;
   top: 100%;
   width: 100%;
@@ -60,8 +62,32 @@ body > form {
   max-height: 200px;
   overflow-y: scroll;
   transition: all 0.5s ease;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 0.4rem;
+  border: 1px solid grey;
+}
+.showingAvailableSearchResults div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.showingAvailableSearchResults p {
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255);
+  width: 100%;
+  padding: 0 0.4rem;
+}
+.showingAvailableSearchResults p:hover {
+  border: 1px solid rgb(255, 255, 255);
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
 }
 
+.showingAvailableSearchResults::-webkit-scrollbar {
+  width: 0;
+}
 ::-webkit-scrollbar {
   width: 10px;
 }

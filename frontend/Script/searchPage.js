@@ -22,8 +22,13 @@ window.onload = async () => {
             DisplayCars(res)
         }
     } catch (error) {
-        alert("Failed to fetch data!")
-        console.log(error)
+        showDatabox.innerHTML = '';
+        showDatabox.innerHTML = `<div id="loadingScreen">
+        <div class="dot-spinner">
+          <h3><h1>Oops!</h1>Error while fetching data</h3>
+        </div>
+      </div>`
+
     }
 }
 
