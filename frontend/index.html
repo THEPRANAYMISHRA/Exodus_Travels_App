@@ -83,9 +83,9 @@
 
     <!-- bodypart=========================================================================== -->
     <form>
+      <label for="type" class="h6">Searching For</label>
       <select name="choose" id="type">
-        <option value="" disabled selected>Select an option</option>
-        <option value="Stays">Stays</option>
+        <option value="Stays" selected>Stays</option>
         <option value="Flights">Flights</option>
         <option value="Cars">Cars</option>
       </select>
@@ -93,11 +93,16 @@
       <div id="formforstays" class="inputGroup">
         <div class="inputDiv">
           <label for="location">Name</label>
-          <input type="text" id="location" placeholder="Enter location" />
+          <input
+            type="text"
+            id="location"
+            placeholder="Enter location"
+            autocomplete="off"
+          />
           <section class="showingAvailableSearchResults">
-            <ul id="quickResultsforcities">
+            <div id="quickResultsforcities">
               <!-- show results -->
-            </ul>
+            </div>
           </section>
         </div>
         <div class="inputDiv">

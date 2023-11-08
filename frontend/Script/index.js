@@ -50,6 +50,7 @@ let locationEl = document.getElementById("location")
 let checkinEl = document.getElementById("checkin")
 let checkoutEl = document.getElementById("checkout")
 let quickResultsforcitiesEl = document.getElementById("quickResultsforcities")
+let showingAvailableSearchResultsEl = document.getElementsByClassName("showingAvailableSearchResults")[0]
 // for flights
 let LeavingfromEl = document.getElementById("leavingfrom")
 let GoingtoEl = document.getElementById("goingto")
@@ -152,7 +153,7 @@ optionEl.addEventListener("change", () => {
     }
 })
 
-
+// searching cities with debouncer
 function debounce(func, delay) {
     let timer;
     return function (...agrs) {
@@ -163,18 +164,22 @@ function debounce(func, delay) {
     };
 }
 
+// fetching available cities with this
 async function handleInputSearch() {
     try {
-        let res = await fetch(`https://exodustravels.onrender.com/search/available/Stays`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ city: locationEl.value })
-        })
-        res = await res.json();
-        console.log(res);
-        displayListOfAvailableCities(res);
+        if (locationEl.value) {
+            let res = await fetch(`https://exodustravels.onrender.com/search/available/Stays`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ city: locationEl.value })
+            })
+            res = await res.json();
+            displayListOfAvailableCities(res);
+        } else {
+            showingAvailableSearchResultsEl.style.display = "none";
+        }
     } catch (error) {
         alert("Failed to fetch data!")
         console.log(error)
@@ -183,12 +188,35 @@ async function handleInputSearch() {
 
 
 function displayListOfAvailableCities(array) {
-    let str = array.map((ele) => {
-        `<li>${ele.city}</li>`
-    })
-    quickResultsforcitiesEl.innerHTML += str.join('');
+    // find unique
+    const cities = array.reduce((acc, cur) => {
+        if (!acc.includes(cur.city)) { acc.push(cur.city) };
+        return acc;
+    }, []);
+
+    let str;
+    if (cities.length > 0) {
+        str = cities.map((ele) => {
+            return `<p onclick="setLocationFromResult('${ele}')">${ele}</p>`
+        }).join('');
+    } else {
+        str = [`<p>No Results</p>`].join('');
+    }
+    showingAvailableSearchResultsEl.style.display = "block";
+    quickResultsforcitiesEl.innerHTML = str
 }
 
 let debouncedInputChange = debounce(handleInputSearch, 300);
-
 locationEl.addEventListener('input', debouncedInputChange);
+
+
+function setLocationFromResult(city) {
+    locationEl.value = city;
+    showingAvailableSearchResultsEl.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target != quickResultsforcitiesEl) {
+        showingAvailableSearchResultsEl.style.display = "none";
+    }
+}
