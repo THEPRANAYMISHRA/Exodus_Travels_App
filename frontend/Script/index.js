@@ -28,7 +28,6 @@ window.onload = async () => {
     }
 }
 
-
 async function validateUser(token) {
     try {
         let res = await fetch("https://exodustravels.onrender.com/order/bookings", {
@@ -63,6 +62,8 @@ let dropofftimeEl = document.getElementById("dropofftime")
 
 let searchbtn = document.getElementById("searchPlans")
 
+
+// for quick results
 
 searchbtn.addEventListener("click", async (e) => {
     e.preventDefault()
@@ -149,3 +150,35 @@ optionEl.addEventListener("change", () => {
         formforcars.style.display = "flex";
     }
 })
+
+
+function debounce(func, delay) {
+    let timer;
+    return function (...agrs) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func.apply(this, agrs);
+        }, delay);
+    };
+}
+
+async function handleInputSearch() {
+    try {
+        let res = await fetch(`https://exodustravels.onrender.com/search/available/Stays`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ city: locationEl.value })
+        })
+        res = await res.json();
+        console.log(res);
+    } catch (error) {
+        alert("Failed to fetch data!")
+        console.log(error)
+    }
+}
+
+let debouncedInputChange = debounce(handleInputSearch, 300);
+
+locationEl.addEventListener('input', debouncedInputChange);
