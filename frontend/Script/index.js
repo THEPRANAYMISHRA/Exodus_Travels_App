@@ -49,6 +49,7 @@ async function validateUser(token) {
 let locationEl = document.getElementById("location")
 let checkinEl = document.getElementById("checkin")
 let checkoutEl = document.getElementById("checkout")
+let quickResultsforcitiesEl = document.getElementById("quickResultsforcities")
 // for flights
 let LeavingfromEl = document.getElementById("leavingfrom")
 let GoingtoEl = document.getElementById("goingto")
@@ -172,11 +173,19 @@ async function handleInputSearch() {
             body: JSON.stringify({ city: locationEl.value })
         })
         res = await res.json();
-        console.log(res);
+        displayListOfAvailableCities(res);
     } catch (error) {
         alert("Failed to fetch data!")
         console.log(error)
     }
+}
+
+
+function displayListOfAvailableCities(array) {
+    let str = array.map((ele) => {
+        `<li>${ele.city}</li>`
+    })
+    quickResultsforcitiesEl.innerHTML += str.join('');
 }
 
 let debouncedInputChange = debounce(handleInputSearch, 300);
