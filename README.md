@@ -1,4 +1,4 @@
-# Exodus Travels 🚀🌍
+# Exodus Travels 🌍
 
 Exodus Travels is a web application that allows users to search and book tickets for flights, accommodations, and rental cars. With Exodus Travels, users can quickly and easily compare prices for various travel options, making it easier to find the best deals. 💼🔍
 
