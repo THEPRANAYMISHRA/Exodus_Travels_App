@@ -6,6 +6,7 @@ let formforcars = document.getElementById("formforcars")
 let User_profile = document.getElementById('User_profile')
 let loginbtn = document.getElementById('login-option')
 let datesInp = document.querySelectorAll("input[type='date']")
+let alertDangerDiv = document.getElementsByClassName('alert-danger')
 
 window.onload = async () => {
     let name = localStorage.getItem("name")
@@ -73,17 +74,29 @@ searchbtn.addEventListener("click", async (e) => {
     localStorage.setItem("Searching for", JSON.stringify(optionEl.value))
 
     if (optionEl.value == "Stays") {
-        plan = {
-            city: locationEl.value,
-            checkin: checkinEl.value,
-            checkout: checkoutEl.value
+        if (locationEl.value == '') {
+            alertDangerDiv[0].style.display = 'block';
+            alertDangerDiv[0].textContent = 'Enter a valid location';
+            return;
+        } else {
+            plan = {
+                city: locationEl.value,
+                checkin: checkinEl.value,
+                checkout: checkoutEl.value
+            }
         }
     } else if (optionEl.value == "Flights") {
-        plan = {
-            from: LeavingfromEl.value,
-            to: GoingtoEl.value,
-            depaturedate: DepartureDateEl.value,
-            returndate: ReturnDateEl.value
+        if (LeavingfromEl.value == '' || GoingtoEl.value == '') {
+            alertDangerDiv[0].style.display = 'block';
+            alertDangerDiv[0].textContent = 'Enter a valid location'
+            return;
+        } else {
+            plan = {
+                from: LeavingfromEl.value,
+                to: GoingtoEl.value,
+                depaturedate: DepartureDateEl.value,
+                returndate: ReturnDateEl.value
+            }
         }
     } else if (optionEl.value == "Cars") {
         plan = {

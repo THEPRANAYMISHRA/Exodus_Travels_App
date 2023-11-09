@@ -11,6 +11,12 @@ marquee {
 .navbar-brand img {
   width: 16%;
 }
+
+.alert {
+  display: none;
+  transition: height 2s ease-in-out;
+}
+
 body > form {
   display: flex;
   justify-content: center;
