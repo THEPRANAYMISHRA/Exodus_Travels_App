@@ -14,20 +14,29 @@ window.onload = async () => {
         })
         res = await res.json()
         loadingScreen.style.display = 'none'
-        if (searchingfor == 'Flights') {
-            DisplayFlights(res)
-        } else if (searchingfor == 'Stays') {
-            DisplayStays(res)
+        if (res.length > 0) {
+            if (searchingfor == 'Flights') {
+                DisplayFlights(res)
+            } else if (searchingfor == 'Stays') {
+                DisplayStays(res)
+            } else {
+                DisplayCars(res)
+            }
         } else {
-            DisplayCars(res)
+            showDatabox.innerHTML = '';
+            showDatabox.innerHTML = `<div id="loadingScreen">
+                                        <div class="dot-spinner">
+                                        <h3><h1>Oops!</h1>No data is found</h3>
+                                        </div>
+                                    </div>`
         }
     } catch (error) {
         showDatabox.innerHTML = '';
         showDatabox.innerHTML = `<div id="loadingScreen">
-        <div class="dot-spinner">
-          <h3><h1>Oops!</h1>Error while fetching data</h3>
-        </div>
-      </div>`
+                                    <div class="dot-spinner">
+                                    <h3><h1>Oops!</h1>Error while fetching data</h3>
+                                    </div>
+                                </div>`
 
     }
 }
